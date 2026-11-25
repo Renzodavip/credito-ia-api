@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: credito-ia-api
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/creditoia}
+    username: ${DB_USER:creditoia}
+    password: ${DB_PASSWORD:creditoia}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 5000
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  mvc:
+    problemdetails:
+      enabled: true
+  threads:
+    virtual:
+      enabled: true
+
+llm:
+  # ollama (local, gratis) o anthropic (API paga)
+  provider: ${LLM_PROVIDER:ollama}
+  model: ${LLM_MODEL:llama3.2}
+  base-url: ${LLM_BASE_URL:http://localhost:11434}
+  api-key: ${LLM_API_KEY:}
+  timeout: ${LLM_TIMEOUT:60s}
+
+credito:
+  reglas:
+    tasa-nominal-anual: 0.085
+    relacion-cuota-ingreso-maxima: 0.25
+    edad-maxima-al-finalizar: 75
+  lote:
+    concurrencia-maxima: 4
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
