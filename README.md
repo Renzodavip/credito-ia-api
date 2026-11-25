@@ -1,5 +1,7 @@
 # credito-ia-api
 
+[![CI](https://github.com/Renzodavip/credito-ia-api/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Renzodavip/credito-ia-api/actions/workflows/ci.yml)
+
 API de pre-evaluación de solicitudes de crédito hipotecario. Recibe la solicitud del cliente en texto libre, usa un LLM para extraer los datos en un esquema fijo y aplica reglas de negocio en Java para decidir si precalifica.
 
 **Stack:** Java 21 · Spring Boot 3.4 · PostgreSQL · Flyway · JUnit 5 · Mockito · Testcontainers · JaCoCo · Docker · GitHub Actions
